@@ -1,5 +1,7 @@
 (default_model) add_setting vocabulary_file Databases/Vocab_files/ia.eNd
 (default_model) change_setting_type vocabulary_file filename
+(default_model) add_setting letter_file Databases/letter_features_no_blank.eNd
+(default_model) change_setting_type letter_file filename
 (default_model) add_setting parameter_file Parameters/ia.eNp
 (default_model) make_setting_relative_filename parameter_file
 (default_model) add_setting numslots 4

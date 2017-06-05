@@ -3,7 +3,7 @@
 
 # ## LETTER FEATURE REPRESENTATION
 create dataframe_for_reps features_db
-features_db load Databases/letter_features_no_blank.eNd
+features_db load $letter_file
 
 # ## ORTHOGRAPHY, PHONOLOGY, FREQUENCIES
 create dataframe_for_reps vocab

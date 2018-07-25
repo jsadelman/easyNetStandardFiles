@@ -339,6 +339,7 @@ resetter add_sync features
 resetter add_target letters
 resetter add_target words
 resetter add_target decision
+resetter set_lag 1
 
 initial set_lag 0
 spatial_code set_lag 0
@@ -407,6 +408,8 @@ length_slot_filter set_lag 1
 (default_model) define_output identification identification_obs
 
 ((default_model) parameters) load $parameter_file
+
+
 
 # pretty names
 filtered_letters set_pretty_name filtered letters

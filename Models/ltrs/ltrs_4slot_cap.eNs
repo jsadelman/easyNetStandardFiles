@@ -1,0 +1,2 @@
+ldt set_cap 500
+pldt set_cap 500

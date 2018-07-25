@@ -1,4 +1,0 @@
-create trial ldt
-ldt add_stimulus_event stimulus orthographic START END $stimulus
-ldt set_end_condition lexical_decision
-ldt set_cap 300

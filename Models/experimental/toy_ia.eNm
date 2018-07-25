@@ -1,9 +1,0 @@
-# LOAD VOCAB
-create dataframe_for_reps vocab
-vocab load Databases/Vocab_files/ia_WVH.eNd
-
-include Models/toy_ia.eNs
-
-(ia parameters) load Databases/Parameter_Sets/IA/toy_ia.eNp
-
-include Trials/Presentation_No_Task.eNs

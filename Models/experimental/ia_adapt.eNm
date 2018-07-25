@@ -1,9 +1,0 @@
-(default_model) add_setting vocabulary_file Databases/Vocab_files/ia.eNd
-(default_model) change_setting_type vocabulary_file filename
-(default_model) add_setting letter_feature_file Databases/letter_features_no_blank.eNd
-(default_model) change_setting_type letter_feature_file filename
-(default_model) add_setting parameter_file Databases/Parameter_Sets/IA/ia.eNp
-(default_model) change_setting_type parameter_file filename
-
-(default_model) add_script Models/ia_adapt.eNs
-(default_model) add_script Trials/Brief_Masked_No_Task.eNs

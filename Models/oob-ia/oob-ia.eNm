@@ -1,4 +1,4 @@
-(default_model) add_setting vocabulary_file Databases/Vocab_files/ew5.eNd
+(default_model) add_setting vocabulary_file Databases/Vocab_files/ew5_l.eNd
 (default_model) change_setting_type vocabulary_file filename
 
 (default_model) add_relative_script oob-ia.eNs

@@ -1,6 +1,0 @@
-create above_threshold_observer lexical_decider
-lexical_decider target word_level
-
-ia add lexical_decider
-#lexical_decider parameter_source ps
-ia define_output lexical_decision lexical_decider

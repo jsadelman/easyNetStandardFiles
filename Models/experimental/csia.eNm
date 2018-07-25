@@ -1,6 +1,0 @@
-include Trials/Lexical_Decision.eNs
-include Trials/Brief_Masked_No_Task.eNs
-include Trials/Primed_Lexical_Decision.eNs
-include Trials/Sandwich_Primed_Lexical_Decision.eNs
-
-#include Models/csia_param_explore.eNs

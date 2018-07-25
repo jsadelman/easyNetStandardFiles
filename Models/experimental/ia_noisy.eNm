@@ -1,6 +1,0 @@
-include Models/ia_noisy.eNs
-
-(ia parameters) load Databases/Parameter_Sets/IA/ia.eNp
-(ia parameters) set lnoise::excitation 0.1
-
-include Trials/Brief_Masked_No_Task.eNs

@@ -1,8 +1,0 @@
-create trial brief_masked
-brief_masked add_stimulus_event stimulus orthographic START +$stimulus_duration $stimulus
-brief_masked add_stimulus_event mask orthographic stimulus/end +$mask_duration ################
-brief_masked set_end_condition mask/end
-#set stimulus_duration=15
-#set mask_duration=25
-brief_masked set_default_value stimulus_duration 50
-brief_masked set_default_value mask_duration 25

@@ -1,6 +1,0 @@
-create trial present
-present add_stimulus_event stimulus orthographic START +$stimulus_duration $stimulus
-present set_end_condition stimulus/end
-#set stimulus_duration=50
-present set_default_value stimulus_duration 100
-

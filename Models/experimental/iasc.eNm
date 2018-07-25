@@ -1,5 +1,0 @@
-include Models/iasc.eNs
-
-(iascm parameters) load Databases/Parameter_Sets/IASC/iasc.eNp
-
-include Trials/Brief_Masked_No_Task.eNs

@@ -7,14 +7,14 @@ orth_str set_source (vocab column_rep Word string_representation)
 orth_str create_block_keyed letter_rep
 
 
-create latch_layer what
-what represent letter_rep 
-what set_lag 0
-what change_hint plot_type layers/by_time_heat.R
-
 create latch_layer input
 input represent letter_rep
 input set_lag 0
+
+create latch_layer linput
+linput represent letter_rep
+linput set_lag 0
+linput add_facet ltrs_lag_out
 
 create fire_layer attention
 attention add_facet ltrs_block_attention_weight_transfer
@@ -23,7 +23,12 @@ attention set_lag 0
 attention change_hint plot_type layers/by_time_heat.R
 
 create connection attend
-attend autoconnect input attention
+attend autoconnect linput attention
+
+create latch_layer what
+what represent letter_rep 
+what set_lag 0
+what change_hint plot_type layers/by_time_heat.R
 
 create latch_layer checker
 checker represent (vocab column_rep Word)
@@ -36,8 +41,12 @@ lexicon represent (vocab column_rep Word)
 lexicon set_lag 0
 lexicon change_hint plot_type layers/by_time_grouped.R
 
+create connection lagger
+lagger autoconnect input linput
+
 create connection perception
 perception autoconnect attention what
+#perception set_lag 0
 
 create connection matcher
 matcher autoconnect what checker
@@ -58,30 +67,26 @@ create all_above_threshold_observer word_ok
 word_ok target checker
 (default_model) add word_ok
 
-create regex_observer no_decider
-no_decider target word_ok
-no_decider add [^\?]*
-no_decider add \? no
+#create regex_observer no_decider
+#no_decider target word_ok
+#no_decider add [^\?]*
+#no_decider add \? no
 
 create reset_nobserver reset
 reset add_trigger (input state)
 reset add_sync input
-#reset add_target attention
-reset add_target what
-reset add_target checker 
+reset add_target attention
+reset add_target linput
+
+create reset_nobserver reset2
+reset2 add_trigger (linput output)
+reset2 add_sync linput
+reset2 add_target what
+reset2 require_nonzero 1
 
 (default_model) define_input orthographic (vocab column_rep Word string_representation) input
 (default_model) define_output lexical_decision yes_decider
 #(default_model) define_output lexical_decision no_decider
 
-((default_model) parameters) set perception::excitation 1
-((default_model) parameters) set matcher::excitation 1
-((default_model) parameters) set matcher::inhibition -1000
-((default_model) parameters) set builder::excitation 1
-((default_model) parameters) set attend::excitation 1
-((default_model) parameters) set attention::rate 1
-((default_model) parameters) set attention::total_attention .198
-((default_model) parameters) set attention::initial_advantage .362
-((default_model) parameters) set word_id::threshold 100
-((default_model) parameters) set word_ok::threshold -.9
+((default_model) parameters) load $parameter_file
 

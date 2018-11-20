@@ -8,3 +8,5 @@
 (default_model) add_script Trials/Presentation_No_Task.eNs
 (default_model) add_script Trials/Lexical_Decision.eNs
 (default_model) add_script Trials/Primed_Lexical_Decision.eNs
+
+(default_model) add_relative_script ltrs_regex_cap.eNs

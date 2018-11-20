@@ -88,7 +88,6 @@ bananas2 set_target (prechunk_spl get_target)
 #create parallel_conversion bananas3
 #bananas3 set_source (prechunk_spl get_target)
 #bananas3 set_target (chunk_spl get_target)
-
 create string_representation input_rep
 
 create equiv_conversion inputter
@@ -108,12 +107,25 @@ input set_lag 0
 create string_layer linput
 linput represent input_rep
 linput set_lag 0
-#linput add_facet ltrs_lag_out
+linput add_facet ltrs_lag_out
 
-create copy_connection lagger
-lagger set_autoconnect 0
-lagger attach input 
+create connection lagger
+#lagger set_autoconnect 0
+#lagger add_facet copy_transfer
 linput attach lagger
+lagger attach input
+
+create latch_layer what
+what represent letter_rep 
+what set_lag 0
+what change_hint plot_type layers/by_time_heat.R
+
+create latch_layer where
+where represent letter_rep 
+where set_lag 0
+where change_hint plot_type layers/by_time_heat.R
+
+
 
 create fire_layer attention
 attention add_facet ltrs_block_attention_weight_transfer
@@ -123,17 +135,6 @@ attention change_hint plot_type layers/by_time_heat.R
 
 create connection attend
 attend autoconnect linput attention
-
-create latch_layer what
-what represent letter_rep 
-#what set_lag 0
-what change_hint plot_type layers/by_time_heat.R
-
-create latch_layer where
-where represent letter_rep 
-#where set_lag 0
-where change_hint plot_type layers/by_time_heat.R
-
 
 create regex_conversion marker
 marker set_auto_use 0
@@ -229,15 +230,16 @@ yes_decider add .+ yes
 create reset_nobserver reset
 reset add_trigger (input state)
 reset add_sync input
-reset add_target attention
+#reset add_target attention
 #reset add_target linput
 
 create reset_nobserver reset2
-reset2 add_trigger (linput state)
+reset2 add_trigger (linput output)
 reset2 add_sync linput
-reset2 add_target what
-reset2 add_target where
-reset2 add_target locable
+#reset2 add_target what
+#reset2 add_target where
+#reset2 add_target locable
+reset2 require_nonzero 1
 
 (default_model) define_input orthographic input_rep input
 (default_model) define_output lexical_decision yes_decider

@@ -1,7 +1,9 @@
 parameter value
 perception::excitation 1
+perception::inhibition -1
 perception2::excitation 1
 locating::excitation 1
+lagger::excitation 1
 matcher::excitation 1
 matcher::inhibition -1000
 builder::excitation 1
@@ -9,8 +11,11 @@ attend::excitation 1
 attention::rate 1
 total_attention .198
 initial_advantage .362
-word_id::threshold 100
+word_id::threshold 300
 word_ok::threshold -.9
 locable::rate 3.530
 locable::keep_value 1
 matcher::low_value 0
+initial_lag_mean 21.298
+initial_lag_sd 12.262
+subsequent_lag 31.086

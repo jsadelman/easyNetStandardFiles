@@ -230,7 +230,7 @@ create reset_nobserver reset
 reset add_trigger (input state)
 reset add_sync input
 reset add_target attention
-#reset add_target linput
+reset add_target linput
 
 create reset_nobserver reset2
 reset2 add_trigger (linput state)

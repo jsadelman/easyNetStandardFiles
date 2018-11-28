@@ -237,6 +237,7 @@ create selfweight_diag_connection decision_lat
 decision_lat set_autoconnect 0
 decision_lat attach decision 
 decision attach decision_lat unshunted
+decision_lat add_facet basic_connection_lag_policy
 
 create best_above_threshold_connection id_conn
 id_conn set_autoconnect 0
@@ -310,6 +311,7 @@ resetter add_sync features
 resetter add_target letters
 resetter add_target words
 resetter add_target decision
+resetter set_lag 1
 
 initial set_lag 0
 spatial_code set_lag 0

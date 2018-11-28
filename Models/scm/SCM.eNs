@@ -129,6 +129,7 @@ flc autoconnect features letters
 
 create connection flc_filter
 flc_filter autoconnect features filtered_letters
+flc_filter add_facet basic_connection_lag_policy
 flc_filter set_lag 1
 
 create blocked_connection flc_slot_filter
@@ -137,6 +138,7 @@ filtered_letters attach flc_slot_filter
 flc_slot_filter set_inner_type inhibit_all_if_null_connection
 flc_slot_filter set_target_inner_rep (features_db column_rep letter)
 flc_slot_filter attach features
+flc_slot_filter add_facet basic_connection_lag_policy
 flc_slot_filter set_lag 1
 
 
@@ -262,6 +264,7 @@ create selfweight_diag_connection decision_lat
 decision_lat set_autoconnect 0
 decision_lat attach decision 
 decision attach decision_lat unshunted
+decision_lat add_facet basic_connection_lag_policy
 
 create best_above_threshold_connection id_conn
 id_conn set_autoconnect 0
@@ -320,7 +323,7 @@ olc alignments_from spoc
 letters attach olc 
 olc attach words
 
-olc set_lag 0
+#olc set_lag 0
 
 
 # DECISION RULE
@@ -348,6 +351,8 @@ most_letter set_lag 0
 decision set_use_hard_cap 0
 id_layer set_lag 0
 decision set_lag 0
+
+
 decision_lat set_lag 1
 
 # SET PARAMETERS
@@ -399,6 +404,7 @@ letters attach length_slot_filter
 length_slot_filter set_inner_type inhibit_all_if_null_connection
 length_slot_filter set_target_inner_rep (features_db column_rep letter)
 length_slot_filter attach length_filter
+length_slot_filter add_facet basic_connection_lag_policy
 length_slot_filter set_lag 1
 
 (default_model) define_input orthographic (vocab column_rep Word string_representation) features 
